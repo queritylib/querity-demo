@@ -19,23 +19,24 @@ Run the application with the following command:
 ./mvnw spring-boot:run
 ```
 
-Then open your browser and reach the following URL:
-
-`http://localhost:8080/api/orders?q=shippingCustomer.address.country="France"%20sort%20by%20placementDate%20desc%20page%201,20`
-
-> The query string `shippingCustomer.address.country="France" sort by placementDate desc page 1,20` 
-> filters by shipping address country, sorts the results by placement date in descending order and paginates 
-> the results, returning the first page with 20 elements.
-
-Here is another example query string: `distinct and(rows.totalPrice>1000, currency="EUR") sort by totalPrice desc page 1,10`
-
-> Notice how the above query string filters by a field nested in a collection (`rows.totalPrice`).
-> 
-> In this case the `distinct` keyword is used to avoid duplicate rows and pagination issues.
+Then open your browser to `http://localhost:8080`, there's a Swagger-UI interface to test the API.
 
 Now try out the query language by replacing the query string with any valid query (see [Documentation](https://brunomendola.github.io/querity/#query-language-syntax)).
 
 The in-memory database is pre-populated with a test dataset of 1000 orders. The source data can be found in the [orders.json](/src/main/resources/data/orders.json) file.
+
+Some examples:
+
+`shippingCustomer.address.country="France" sort by placementDate desc page 1,20`
+
+> This query filters by shipping address country, sorts the results by placement date in descending order and paginates
+> the results, returning the first page with 20 elements.
+
+`distinct and(rows.totalPrice>1000, currency="EUR") sort by totalPrice desc page 1,10`
+
+> Notice how the above query string filters by a field nested in a collection (`rows.totalPrice`).
+>
+> In this case the `distinct` keyword is used to avoid duplicate rows and pagination issues.
 
 ## Other info
 
