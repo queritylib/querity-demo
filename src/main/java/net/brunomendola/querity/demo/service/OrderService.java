@@ -8,6 +8,7 @@ import net.brunomendola.querity.demo.model.Order;
 import net.brunomendola.querity.demo.util.Result;
 import net.brunomendola.querity.parser.QuerityParser;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class OrderService {
     this.orderMapper = orderMapper;
   }
 
+  @Transactional(readOnly = true)
   public Result<OrderDto> findOrders(String query) {
     Query q = query != null ?
         // parse query language
