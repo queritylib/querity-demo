@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,25 +17,40 @@
 
   <name>querity-demo</name>
   <description>Demo project for Querity</description>
-  <url/>
 
-  <licenses>
-    <license/>
-  </licenses>
+  <inceptionYear>2025</inceptionYear>
+  <url>https://github.com/brunomendola/querity-demo</url>
+
   <developers>
-    <developer/>
+    <developer>
+      <name>Bruno Mendola</name>
+      <url>http://www.brunomendola.net</url>
+    </developer>
   </developers>
 
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://github.com/brunomendola/querity-demo/blob/main/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/brunomendola/querity-demo/issues</url>
+  </issueManagement>
+
   <scm>
-    <connection/>
-    <developerConnection/>
-    <tag/>
-    <url/>
+    <url>https://github.com/brunomendola/querity-demo</url>
+    <connection>scm:git:https://github.com/brunomendola/querity-demo.git</connection>
+    <developerConnection>scm:git:https://github.com/brunomendola/querity-demo.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
     <java.version>21</java.version>
-    <querity.version>2.3.0</querity.version>
+    <querity.version>2.3.1</querity.version>
     <mapstruct.version>1.6.3</mapstruct.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
   </properties>
