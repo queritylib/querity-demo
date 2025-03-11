@@ -50,7 +50,7 @@
 
   <properties>
     <java.version>21</java.version>
-    <querity.version>2.3.1</querity.version>
+    <querity.version>2.3.2</querity.version>
     <mapstruct.version>1.6.3</mapstruct.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
   </properties>

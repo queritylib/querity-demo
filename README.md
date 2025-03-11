@@ -27,9 +27,10 @@ Then open your browser and reach the following URL:
 > filters by shipping address country, sorts the results by placement date in descending order and paginates 
 > the results, returning the first page with 20 elements.
 
-Here is another example query string: `and(rows.totalPrice>1000, currency="EUR") sort by totalPrice desc page 1,10`
+Here is another example query string: `distinct and(rows.totalPrice>1000, currency="EUR") sort by totalPrice desc page 1,10`
 
-> Notice how the above query string filters by a field nested in a collection (`rows.totalPrice`).
+> Notice how the above query string filters by a field nested in a collection (`rows.totalPrice`). 
+> It this case the `distinct` keyword is used to avoid duplicate rows and pagination issues.
 
 Now try out the query language by replacing the query string with any valid query (see [Documentation](https://brunomendola.github.io/querity/#query-language-syntax)).
 
