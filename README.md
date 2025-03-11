@@ -9,6 +9,8 @@ The application uses an in-memory H2 database to store the orders and the `queri
 
 You can view the ER diagram of the database [here](/assets/er-diagram.png).
 
+The in-memory database is pre-populated with a test dataset of 1000 orders. The source data can be found in the [orders.json](/src/main/resources/data/orders.json) file.
+
 The parsing of the query language is enabled by the `querity-parser` library.
 
 ## Running
@@ -22,8 +24,6 @@ Run the application with the following command:
 Then open your browser to `http://localhost:8080`, there's a Swagger-UI interface to test the API.
 
 Now try out the query language by replacing the query string with any valid query (see [Documentation](https://brunomendola.github.io/querity/#query-language-syntax)).
-
-The in-memory database is pre-populated with a test dataset of 1000 orders. The source data can be found in the [orders.json](/src/main/resources/data/orders.json) file.
 
 Some examples:
 
