@@ -22,7 +22,19 @@ public class OrderService {
   }
 
   public Result<OrderDto> findOrders(String query) {
-    Query q = QuerityParser.parseQuery(query);
+    Query q = query != null ?
+        // parse query language
+        QuerityParser.parseQuery(query) :
+        // just an empty query if null
+        Query.builder().build();
+    if(!q.hasPagination()) {
+      // modify the query to include pagination if missing
+      q = q.toBuilder()
+          .pagination(1, 50)
+          .build();
+    } else if (q.getPagination().getPageSize() > 50) {
+      throw new IllegalArgumentException("Pagination limit exceeded, max page size is 50");
+    }
     List<OrderDto> items = querity.findAll(Order.class, q).stream()
         .map(orderMapper::toDto)
         .toList();
