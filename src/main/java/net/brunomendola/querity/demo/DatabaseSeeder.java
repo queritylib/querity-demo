@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.List;
 
-import static net.brunomendola.querity.demo.Constants.TEST_DATA_PATH;
-
 @Component
 public class DatabaseSeeder implements InitializingBean {
+
+  private static final String TEST_DATA_PATH = "/data/orders.json";
 
   private final OrderRepository orderRepository;
 
