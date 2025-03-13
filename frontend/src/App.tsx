@@ -10,7 +10,7 @@ function App() {
           <img src={logo} alt="Querity Logo" className="w-20 mr-4" />
           <div>
             <h1 className="text-3xl font-bold text-blue-600">Querity DEMO</h1>
-            <p className="italic">Open-source extensible Java query builder supporting SQL and NoSQL.</p>
+            <p className="italic">Open-source Java query builder for SQL and NoSQL.</p>
           </div>
         </div>
         <OrderTable/>
