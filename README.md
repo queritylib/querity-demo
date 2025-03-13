@@ -18,10 +18,12 @@ The parsing of the query language is enabled by the `querity-parser` library.
 Run the application with the following command:
 
 ```bash
-./mvnw spring-boot:run
+./mvnw -Pwith-frontend spring-boot:run
 ```
 
-Then open your browser to `http://localhost:8080`, there's a Swagger-UI interface to test the API.
+Then open your browser to `http://localhost:8080`, you should see a simple web page with a form to query the orders.
+
+There's also a Swagger-UI interface available at `http://localhost:8080/swagger-ui/index.html` to test the API.
 
 Now try out the query language by replacing the query string with any valid query (see [Documentation](https://brunomendola.github.io/querity/#query-language-syntax)).
 

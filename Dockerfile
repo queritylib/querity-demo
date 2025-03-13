@@ -2,7 +2,7 @@ FROM eclipse-temurin:21-jdk-alpine as build
 
 COPY . /src
 WORKDIR /src
-RUN ./mvnw clean package
+RUN ./mvnw -Pwith-frontend clean package
 
 FROM eclipse-temurin:21-jre-alpine
 
