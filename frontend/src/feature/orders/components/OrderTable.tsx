@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Order} from "../models/Order";
-import showError from "../../../common/ToastNotification.tsx";
-import useEffectAfterMount from "../../../common/useEffectAfterMount.ts";
+import showError from "../../../common/ToastNotification";
+import useEffectOnMount from "../../../common/useEffectOnMount";
 
 export interface Result<T> {
   items: T[];
@@ -48,7 +48,7 @@ const OrderTable = () => {
     }
   };
 
-  useEffectAfterMount(() => {
+  useEffectOnMount(() => {
     fetchOrders();
   }, []);
 
