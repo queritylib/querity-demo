@@ -19,7 +19,7 @@
   <description>Demo project for Querity</description>
 
   <inceptionYear>2025</inceptionYear>
-  <url>https://github.com/brunomendola/querity-demo</url>
+  <url>https://github.com/queritylib/querity-demo</url>
 
   <developers>
     <developer>
@@ -31,20 +31,20 @@
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
-      <url>https://github.com/brunomendola/querity-demo/blob/main/LICENSE</url>
+      <url>https://github.com/queritylib/querity-demo/blob/main/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/brunomendola/querity-demo/issues</url>
+    <url>https://github.com/queritylib/querity-demo/issues</url>
   </issueManagement>
 
   <scm>
-    <url>https://github.com/brunomendola/querity-demo</url>
-    <connection>scm:git:https://github.com/brunomendola/querity-demo.git</connection>
-    <developerConnection>scm:git:https://github.com/brunomendola/querity-demo.git</developerConnection>
+    <url>https://github.com/queritylib/querity-demo</url>
+    <connection>scm:git:https://github.com/queritylib/querity-demo.git</connection>
+    <developerConnection>scm:git:https://github.com/queritylib/querity-demo.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
