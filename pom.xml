@@ -50,7 +50,7 @@
 
   <properties>
     <java.version>21</java.version>
-    <querity.version>2.3.2</querity.version>
+    <querity.version>3.0.0</querity.version>
     <mapstruct.version>1.6.3</mapstruct.version>
     <springdoc-openapi.version>2.8.5</springdoc-openapi.version>
   </properties>
@@ -70,12 +70,12 @@
     </dependency>
 
     <dependency>
-      <groupId>net.brunomendola.querity</groupId>
+      <groupId>io.github.queritylib</groupId>
       <artifactId>querity-spring-data-jpa</artifactId>
       <version>${querity.version}</version>
     </dependency>
     <dependency>
-      <groupId>net.brunomendola.querity</groupId>
+      <groupId>io.github.queritylib</groupId>
       <artifactId>querity-parser</artifactId>
       <version>${querity.version}</version>
     </dependency>

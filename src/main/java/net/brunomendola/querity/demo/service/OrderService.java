@@ -1,12 +1,12 @@
 package net.brunomendola.querity.demo.service;
 
-import net.brunomendola.querity.api.Querity;
-import net.brunomendola.querity.api.Query;
+import io.github.queritylib.querity.api.Querity;
+import io.github.queritylib.querity.api.Query;
 import net.brunomendola.querity.demo.dto.OrderDto;
 import net.brunomendola.querity.demo.mapper.OrderMapper;
 import net.brunomendola.querity.demo.model.Order;
 import net.brunomendola.querity.demo.util.Result;
-import net.brunomendola.querity.parser.QuerityParser;
+import io.github.queritylib.querity.parser.QuerityParser;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
