@@ -2,6 +2,9 @@ import {useState} from 'react';
 import {Order} from "../models/Order";
 import showError from "../../../common/ToastNotification";
 import useEffectOnMount from "../../../common/useEffectOnMount";
+import {QuerityBuilderUI, QuerityField} from '@queritylib/react';
+import {useCollapse} from "react-collapsed";
+import './OrderTable.css'
 
 export interface Result<T> {
   items: T[];
@@ -22,6 +25,8 @@ const OrderTable = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
+  const [showBuilder, setShowBuilder] = useState<boolean>(false);
+  const {getCollapseProps, getToggleProps} = useCollapse({isExpanded: showBuilder});
 
   useEffectOnMount(() => {
     const q = getQueryParam('q');
@@ -83,16 +88,16 @@ const OrderTable = () => {
   return (
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Orders List</h1>
-        <div className="mb-4">
-          <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && fetchOrders(query)}
+        <div className="mb-2">
+          <QuerityField
               placeholder="Enter a query"
               className="border p-2 mr-2 w-200"
+              value={query}
+              onChange={(q) => setQuery(q)}
+              onEnter={() => fetchOrders(query)}
+              onInvalidQuery={(e) => alert(e.message)}
           />
-          <button type="submit" className="bg-blue-500 text-white p-2 mr-2 cursor-pointer"
+          <button type="submit" className="bg-blue-500 text-white mr-2 p-2 cursor-pointer"
                   onClick={() => fetchOrders(query)}>Search
           </button>
           <select
@@ -107,6 +112,26 @@ const OrderTable = () => {
                 </option>
             ))}
           </select>
+        </div>
+        <div className="mb-4">
+          <button
+              {...getToggleProps({
+                onClick: () => setShowBuilder(!showBuilder),
+              })}
+              className="bg-gray-200 p-2 cursor-pointer"
+          >
+            Query Builder
+          </button>
+          <div {...getCollapseProps()}>
+            <QuerityBuilderUI
+                query={query}
+                onChange={(q) => {
+                  console.log('Query updated', q);
+                  setQuery(q);
+                }}
+                className="mt-2"
+            />
+          </div>
         </div>
         <h2 className="text-xl mb-4">Total Orders: {totalCount}</h2>
         <table className="min-w-full bg-white">
