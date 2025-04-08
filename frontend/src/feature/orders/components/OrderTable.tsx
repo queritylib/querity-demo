@@ -23,14 +23,22 @@ const OrderTable = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
+  useEffectOnMount(() => {
+    const q = getQueryParam('q');
+    if (q) setQuery(q);
+
+    fetchOrders(q);
+  }, []);
+
   const fetchOrders = async (query?: string) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/orders?q=${query || ''}`);
+      const response = await fetch(`/api/orders?q=${query ?? ''}`);
       if (response.ok) {
         const data: Result<Order> = await response.json();
         setOrders(data.items);
         setTotalCount(data.totalCount);
+        setQueryParam('q', query ?? '');
       } else {
         try {
           const error: ErrorResponse = await response.json();
@@ -48,9 +56,16 @@ const OrderTable = () => {
     }
   };
 
-  useEffectOnMount(() => {
-    fetchOrders();
-  }, []);
+  function setQueryParam(paramName: string, value: string): void {
+    const params = new URLSearchParams(window.location.search);
+    params.set(paramName, value);
+    window.history.pushState({}, '', `${window.location.pathname}?${params.toString()}`);
+  }
+
+  function getQueryParam(paramName: string): string | undefined {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(paramName) ?? undefined;
+  }
 
   const predefinedQueries = [
     'orderNumber=500',
