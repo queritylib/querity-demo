@@ -1,17 +1,21 @@
-Querity - DEMO
-==============
+Querity - Demo Application
+==========================
 
-This application is the simplest demonstration of the [Querity](https://github.com/queritylib/querity) library.
+Welcome to **Querity Demo** – a minimal yet complete example showcasing the power and simplicity of the 
+[**Querity**](https://github.com/queritylib/querity) query language for full-stack filtering, sorting, and pagination.
 
-It is a Spring Boot application that exposes a REST API to query a list of orders.
+This demo illustrates how to integrate Querity across both backend and frontend:
 
-The application uses an in-memory H2 database to store the orders and the `querity-spring-data-jpa` library to query the database. 
+- **Backend**: A Spring Boot REST API using 
+[`querity-spring-data-jpa`](https://github.com/queritylib/querity/tree/main/querity-spring-data-jpa) to query an in-memory **H2** database of orders.
+- **Frontend**: A React-based UI built with 
+[`@queritylib/react`](https://github.com/queritylib/querity-react) to construct dynamic queries and display results in a grid.
 
-You can view the ER diagram of the database [here](/assets/er-diagram.png).
+Querity enables expressive, consistent, and secure querying capabilities across your stack – from API consumers to the database layer – with minimal effort.
 
-The in-memory database is pre-populated with a test dataset of 1000 orders. The source data can be found in the [orders.json](/src/main/resources/data/orders.json) file.
+> 💡 Whether you're building internal tools or public APIs, Querity helps you deliver powerful query functionality without reinventing the wheel.
 
-The parsing of the query language is enabled by the `querity-parser` library.
+See the live demo at ➡️ [Querity Demo](https://querity-demo.onrender.com/) ⬅️.
 
 ## Running
 
@@ -41,5 +45,7 @@ Some examples:
 > In this case the `distinct` keyword is used to avoid duplicate rows and pagination issues.
 
 ## Other info
+
+You can view the ER diagram of the database [here](/assets/er-diagram.png).
 
 Test dataset generated with Mockaroo: https://mockaroo.com/85a9ebf0
