@@ -7,7 +7,7 @@ const querityComponents: ComponentOverrides = {
   ...defaultQuerityComponents,
   Input: (props) => <input {...props} className={`${props.className} border p-2`} />,
   Select: (props) => <select {...props} className={`${props.className} border p-2`} />,
-  Button: (props) => <button {...props} className={`${props.className} bg-gray-200 p-2 cursor-pointer`} />,
+  Button: (props) => <button {...props} className={`${props.className} bg-gray-200 p-2 mr-1 ml-1 cursor-pointer`} />,
   Checkbox: (props) => (
       <label className="inline-flex items-center cursor-pointer">
         <input type="checkbox" {...props} className="sr-only peer"/>
