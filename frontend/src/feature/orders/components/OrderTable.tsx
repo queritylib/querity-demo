@@ -75,7 +75,7 @@ const OrderTable = () => {
   const predefinedQueries = [
     'orderNumber=500',
     'placementDate>="2024-07-01T00:00:00.000Z" page 1,10',
-    'shippingCustomer.address.country="Italy"',
+    'shippingCustomer.address.country in ("Italy", "France")',
     'distinct and(rows.totalPrice>1000,currency="EUR") sort by placementDate desc page 1,20'
   ];
 
