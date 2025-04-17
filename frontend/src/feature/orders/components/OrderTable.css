@@ -1,8 +1,6 @@
+@import '@queritylib/react/themes/default/style.css';
+
 .querity-field[aria-invalid="true"] {
   outline-width: 2px;
   outline-color: red;
-}
-
-.querity-builder h5 {
-  font-weight: bold;
 }
