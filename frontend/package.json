@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@queritylib/react": "1.4.0",
-    "react": "^19.2.0",
+    "react": "^19.2.1",
     "react-collapsed": "^4.2.0",
     "react-dom": "^19.2.0",
     "react-toastify": "^11.0.5"
