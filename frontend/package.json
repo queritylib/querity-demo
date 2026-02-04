@@ -6,13 +6,14 @@
   "scripts": {
     "clean": "rimraf node_modules/.vite build",
     "dev": "vite",
+    "type-check": "tsc --noEmit",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "copy-build": "shx cp -r dist/* ../target/classes/static/"
   },
   "dependencies": {
-    "@queritylib/react": "1.4.0",
+    "@queritylib/react": "1.5.2",
     "react": "^19.2.1",
     "react-collapsed": "^4.2.0",
     "react-dom": "^19.2.3",

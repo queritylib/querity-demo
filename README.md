@@ -1,14 +1,14 @@
 Querity - Demo Application
 ==========================
 
-Welcome to **Querity Demo** – a minimal yet complete example showcasing the power and simplicity of the 
+Welcome to **Querity Demo** – a minimal yet complete example showcasing the power and simplicity of the
 [**Querity**](https://github.com/queritylib/querity) query language for full-stack filtering, sorting, and pagination.
 
 This demo illustrates how to integrate Querity across both backend and frontend:
 
-- **Backend**: A Spring Boot REST API using 
+- **Backend**: A Spring Boot REST API using
 [`querity-spring-data-jpa`](https://github.com/queritylib/querity/tree/main/querity-spring-data-jpa) to query an in-memory **H2** database of orders.
-- **Frontend**: A React-based UI built with 
+- **Frontend**: A React-based UI built with
 [`@queritylib/react`](https://github.com/queritylib/querity-react) to construct dynamic queries and display results in a grid.
 
 Querity enables expressive, consistent, and secure querying capabilities across your stack – from API consumers to the database layer – with minimal effort.
