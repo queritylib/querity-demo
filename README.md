@@ -29,7 +29,7 @@ Then open your browser to `http://localhost:8080`, you should see a simple web p
 
 There's also a Swagger-UI interface available at `http://localhost:8080/swagger-ui/index.html` to test the API.
 
-Now try out the query language by replacing the query string with any valid query (see [Documentation](https://queritylib.github.io/querity/#query-language-syntax)).
+Now try out the query language by replacing the query string with any valid query (see [Documentation](https://queritylib.github.io/#query-language-syntax)).
 
 Some examples:
 
