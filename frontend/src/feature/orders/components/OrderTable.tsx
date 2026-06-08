@@ -54,7 +54,7 @@ const OrderTable = () => {
           showError(new Error(error.message || error.error));
         } catch (e) {
           console.error('Error reading error response:', e);
-          throw new Error(response.statusText || 'Unknown error');
+          throw new Error(response.statusText, { cause: e });
         }
       }
     } catch (error) {
