@@ -28,12 +28,16 @@ const OrderTable = () => {
   const [showBuilder, setShowBuilder] = useState<boolean>(false);
   const {getCollapseProps, getToggleProps} = useCollapse({isExpanded: showBuilder});
 
-  useEffectOnMount(() => {
-    const q = getQueryParam('q');
-    if (q) setQuery(q);
+  function getQueryParam(paramName: string): string | undefined {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(paramName) ?? undefined;
+  }
 
-    fetchOrders(q);
-  }, []);
+  function setQueryParam(paramName: string, value: string): void {
+    const params = new URLSearchParams(window.location.search);
+    params.set(paramName, value);
+    window.history.pushState({}, '', `${window.location.pathname}?${params.toString()}`);
+  }
 
   const fetchOrders = async (query?: string) => {
     setLoading(true);
@@ -50,7 +54,7 @@ const OrderTable = () => {
           showError(new Error(error.message || error.error));
         } catch (e) {
           console.error('Error reading error response:', e);
-          throw new Error(response.statusText);
+          throw new Error(response.statusText, { cause: e });
         }
       }
     } catch (error) {
@@ -61,16 +65,12 @@ const OrderTable = () => {
     }
   };
 
-  function setQueryParam(paramName: string, value: string): void {
-    const params = new URLSearchParams(window.location.search);
-    params.set(paramName, value);
-    window.history.pushState({}, '', `${window.location.pathname}?${params.toString()}`);
-  }
+  useEffectOnMount(() => {
+    const q = getQueryParam('q');
+    if (q) setQuery(q);
 
-  function getQueryParam(paramName: string): string | undefined {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(paramName) ?? undefined;
-  }
+    fetchOrders(q);
+  }, []);
 
   const predefinedQueries = [
     'orderNumber=500',
