@@ -44,21 +44,15 @@ jobs:
         if [[ "$FORCE_BUILD" == "true" ]]; then
           echo "frontend-changed=true" >> $GITHUB_OUTPUT
         elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
-          # For PR, compare against the base branch
+          # For PR, compare all commits against the base branch
           if git diff --name-only ${{ github.base_ref }}...HEAD | grep -q '^frontend/'; then
             echo "frontend-changed=true" >> $GITHUB_OUTPUT
           else
             echo "frontend-changed=false" >> $GITHUB_OUTPUT
           fi
-        elif [[ "${{ github.event_name }}" == "push" ]]; then
-          # For push, compare against the previous commit
-          if git diff --name-only HEAD~1 HEAD | grep -q '^frontend/'; then
-            echo "frontend-changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "frontend-changed=false" >> $GITHUB_OUTPUT
-          fi
         else
-          # For manual dispatch, always build frontend
+          # For push and manual dispatch, always build frontend
+          # (safer default to ensure frontend is always validated on main)
           echo "frontend-changed=true" >> $GITHUB_OUTPUT
         fi
     
