@@ -14,6 +14,15 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      force_frontend_build:
+        description: 'Force frontend build'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 jobs:
   build:
@@ -29,7 +38,10 @@ jobs:
     - name: Detect frontend changes
       id: changes
       run: |
-        if git diff --name-only origin/main...HEAD | grep -q '^frontend/'; then
+        FORCE_BUILD="${{ github.event.inputs.force_frontend_build }}"
+        if [[ "$FORCE_BUILD" == "true" ]]; then
+          echo "frontend-changed=true" >> $GITHUB_OUTPUT
+        elif git diff --name-only origin/main...HEAD | grep -q '^frontend/'; then
           echo "frontend-changed=true" >> $GITHUB_OUTPUT
         else
           echo "frontend-changed=false" >> $GITHUB_OUTPUT
