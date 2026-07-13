@@ -35,7 +35,7 @@
     "shx": "^0.4.0",
     "tailwindcss": "^4.2.2",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.58.2",
+    "typescript-eslint": "^8.63.0",
     "vite": "^8.1.0"
   },
   "volta": {
