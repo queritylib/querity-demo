@@ -13,3 +13,10 @@ updates:
     directory: "/frontend" # Location of package manifests
     schedule:
       interval: "weekly"
+    ignore:
+      # typescript-eslint refuses to load on TS 7.0 ("typescript-eslint does
+      # not support TS 7.0"), so `npm run lint` cannot run. Support is tracked
+      # for TS >= 7.1 in typescript-eslint#10940. Drop this entry then.
+      # See #243.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
